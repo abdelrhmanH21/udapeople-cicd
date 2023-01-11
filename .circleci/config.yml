@@ -11,7 +11,6 @@ commands:
           channel: udapeople
           template: basic_fail_1
 
-<<<<<<< HEAD
 #   revert-migrations:
 #     description: Revert the lastmigration if successfully run in the current workflow.
 #     parameters:
@@ -31,7 +30,7 @@ commands:
 #               npm install
 #               npm run migration:revert
 #             fi
-=======
+
   revert-migrations:
     description: Revert the last migrationif successfully run in the current workflow.
     parameters:
@@ -51,7 +50,6 @@ commands:
               npm install
               npm run migration:revert
             fi
->>>>>>> 2f154e6f69c3c5673c7ccc99cd6a62d17d4a279d
   
   destroy-environment:
     description: Destroy back-end and front-end cloudformation stacks given a workflow ID.
