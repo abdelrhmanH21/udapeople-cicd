@@ -1,1 +1,3 @@
-http://udapeople-3f40161.s3-website-us-east-1.amazonaws.com
+S3 URL:  http://udapeople-ce6ebb5.s3-website-us-east-1.amazonaws.com
+
+GitHub ripo URL : https://github.com/abdelrhmanH21/udapeople-cicd

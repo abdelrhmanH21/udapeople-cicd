@@ -23,7 +23,7 @@ commands:
               npm install
               npm run migration:revert
             fi
-  
+  #command to destroy environment in case of faliure
   destroy-environment:
     description: Destroy back-end and front-end cloudformation stacks given a workflow ID.
     parameters:
@@ -38,7 +38,7 @@ commands:
             aws cloudformation delete-stack --stack-name udapeople-backend-<< parameters.Workflow_ID >>
             aws s3 rm s3://udapeople-<<parameters.Workflow_ID>> --recursive
             aws cloudformation delete-stack --stack-name udapeople-frontend-<< parameters.Workflow_ID >>
-
+# command to install aws cli
   install_awscli:
     description: Install Aws CLI
     steps:
@@ -48,7 +48,7 @@ commands:
             curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
             unzip awscliv2.zip
             sudo ./aws/install
-
+# command to install Ansible
   install_ansible:
     description: Install Ansible
     steps:
@@ -59,7 +59,7 @@ commands:
             sudo apt install software-properties-common
             sudo add-apt-repository --yes --update ppa:ansible/ansible
             sudo apt install ansible
-            
+ #command to install nodejs           
   install_nodejs:
     description: Install Node.js 13
     steps:
@@ -209,7 +209,7 @@ jobs:
           paths:
             - project/.circleci/ansible/inventory.txt
       - destroy-environment
-      # Here's where you will add some code to rollback on failure      
+      # you will add some code to rollback on failure      
 
   configure-infrastructure:
     docker:
@@ -229,7 +229,7 @@ jobs:
             cat inventory.txt
             ansible-playbook -i inventory.txt configure-server.yml
       - destroy-environment
-      # Here's where you will add some codeto rollback on failure      
+      #you will add some codeto rollback on failure      
 
   run-migrations:
     docker:
@@ -295,7 +295,7 @@ jobs:
             aws s3 cp dist s3://udapeople-${CIRCLE_WORKFLOW_ID:0:7} --recursive
       - destroy-environment
       - revert-migrations
-      # Here's where you will add some code to rollback on failure      
+      # you will add some code to rollback on failure      
                     
   deploy-backend:
     docker:
@@ -338,7 +338,7 @@ jobs:
 
       - destroy-environment
       - revert-migrations
-      # Here's where you will add some code to rollback on failure  
+      # you will add some code to rollback on failure  
 
   smoke-test:
     docker:
@@ -374,7 +374,7 @@ jobs:
             fi
       - destroy-environment
       - revert-migrations
-      # Here's where you will add some code to rollback on failed status 
+      # you will add some code to rollback on failed status 
 
   cloudfront-update:
     docker:
@@ -400,7 +400,7 @@ jobs:
               --stack-name InitialStack
       - destroy-environment
       - revert-migrations
-      # Here's where you will add some code to rollback on failure  
+      # you will add some code to rollback on failure  
 
   cleanup:
       docker:
