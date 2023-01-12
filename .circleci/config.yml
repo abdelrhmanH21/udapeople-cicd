@@ -262,7 +262,7 @@ jobs:
             fi
       - destroy-environment
       - revert-migrations
-
+#deploy frontend
   deploy-frontend:
     docker:
       - image: cimg/base:stable
