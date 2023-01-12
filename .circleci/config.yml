@@ -459,6 +459,3 @@ workflows:
           requires: [smoke-test]
       - cleanup:
           requires: [cloudfront-update]
-      - notify-on-success:
-          requires:
-            - cleanup
